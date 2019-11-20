@@ -337,7 +337,7 @@ case class MatcherApiRoute(assetPairBuilder: AssetPairBuilder,
 
   private def orderBookInfoJson(pair: AssetPair): JsObject =
     Json.obj(
-      "restrictions" -> matcherSettings.orderRestrictions.get(pair).map { _.getJson.value },
+      "restrictions" -> matcherSettings.orderRestrictions.get(pair).map { _.json.value },
       "matchingRules" -> Json.obj(
         "tickSize" -> formatValue { getActualTickSize(pair) }
       )
